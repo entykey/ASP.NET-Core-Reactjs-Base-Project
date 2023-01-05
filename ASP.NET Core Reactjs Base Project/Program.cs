@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using AutoMapper;
 using System.Text;
-using Microsoft.OpenApi.Models; // swagger ui
+using Microsoft.OpenApi.Models; // swagger ui (must install Swashbuckle.AspNetCore & Microsoft.OpenApi)
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -150,12 +150,12 @@ app.UseCors(builder =>
 {
     builder
        //.AllowAnyOrigin()  // .net dont allow AllowAnyOrigin together with AllowCredentials
-       .WithOrigins("http://localhost:44429", "https://localhost:44429") // set your origins here
+       .WithOrigins("http://localhost:44429", "https://localhost:44429") // set your ClientApp origins here
        .SetIsOriginAllowedToAllowWildcardSubdomains()
        .AllowAnyHeader()
        .AllowCredentials()
        .WithMethods("GET", "PUT", "POST", "DELETE", "OPTIONS")
-       .SetPreflightMaxAge(TimeSpan.FromSeconds(3600));
+       .SetPreflightMaxAge(TimeSpan.FromSeconds(3600)); // TimeSpan.FromMinutes(60)
 });
 
 

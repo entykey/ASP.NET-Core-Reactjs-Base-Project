@@ -79,6 +79,9 @@ export class NavMenu extends Component {
               <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/fetch-data-custom">Fetch data custom</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/users">All users</NavLink>
+              </NavItem>
                 {auth}
             </ul>
           </Collapse>

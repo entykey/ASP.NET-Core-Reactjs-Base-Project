@@ -15,7 +15,7 @@ export class Users extends React.Component {
         this.state = { users: [], loading: true };
 
         // Send GET request for listing all users
-        fetch('api/users/all')
+        fetch('https://localhost:7084/api/users/all')    // default: 'api/users/all'
             .then(response => response.json())
             .then(data => {
                 this.setState({ users: data, loading: false });
